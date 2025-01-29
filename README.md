@@ -13,4 +13,5 @@ Sources:
 
 https://hewjunwei.wordpress.com/2013/01/26/obb-generation-via-principal-component-analysis/
 https://blog.csdn.net/qing101hua/article/details/53100112
+https://blog.csdn.net/flj135792468/article/details/120759839
 

@@ -1,5 +1,5 @@
 About
-This project aims to provide an implementation of OBB or simply known as a Box Collider in Unity with the PCA algorithm. This is in order to experiment with further optimizations in order to best repesent multiple unity gameobjects in space with one minimum viable bounding box, first optimization to follow is taking only the outer edge vertices of objects instead of the whole object vertices. 
+This project aims to provide an implementation of OBB or simply known as a Box Collider in Unity with the PCA algorithm. This is in order to experiment with further optimizations in order to best repesent multiple unity gameobjects in space with one minimum viable bounding box. 
 
 It can be seen in action here:
 

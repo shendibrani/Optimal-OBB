@@ -18,7 +18,7 @@ For 1600 points (3 capsules) 200 samples: 0.39ms
 
 
 
-This suggests that the algorithm has a Big O notation factor of O(n). Scaling with the number of points it has to take into account. Note that the mesh filter vertex collection for all children is not included in these calculations. 
+This suggests that the algorithm has a Big O notation factor of O(n). Scaling linearly with the number of points it has to take into account. Note that the mesh filter vertex collection for all children is not included in these calculations. 
 
 It can be seen in action here:
 

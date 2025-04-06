@@ -1,8 +1,8 @@
 About:
 
-This project aims to provide an implementation of OBB or simply known as a Box Collider in Unity, however with the addition that it can contain an n number of objects inside and having an implementation to recalculate the most optimal diagonals.
-That is done by using the PCA algorithm in order to find the optimal orientation. 
-See the comparison with the Green (Unity) vs Blue (our) to see the shortcomings of using a box collider in this situation. Of course, in both situations we use a box collider, however the unity box collider does not by default recalculate the best orientation for the object/objects it represents, in other words, it creates an OBB with the shortcomings of an AABB, since it only calculates the best orientation in space according to its models space.
+This project aims to provide an implementation of OBB or simply known as a Box Collider in Unity. However, this is with the addition that it can contain an n number of objects inside (it can fit any number of points, or vertices from any objects).
+This is done by using the PCA algorithm in order to find the optimal orientation (Hew Jun Wei blog source below). 
+See the comparison with the Green (Unity) vs Blue (our) to see the shortcomings of using a box collider in this situation. Of course, in both situations we use a box collider, however the unity box collider does not by default recalculate the best orientation for the object/objects it represents, in other words, it creates an OBB with the shortcomings of an AABB, since it only calculates the best orientation in space based only on the models space it represents, neither does it let us provide a better orientation to it, therefore we generate our own gameobject with custom size and orientation with a default unity box collider to represent the new space of the arbitrary number of points in space.
 Aside from the core components of the project being sourced by different implementations by Hew Jun Wei (link below), we have added different optimizations such as vertex caching, calculating the best orientation and size based on the bounding boxes of each object instead of all vertices, etc...
 The results on a Ryzen 5700X3D are:
 

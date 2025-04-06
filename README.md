@@ -16,7 +16,7 @@ For 1600 points (3 capsules) 200 samples: 0.39ms
 3 Capsules reduced to 24 points (3 bounding boxes), 200 samples: 0.02ms avg
 ![3 capsules, bounding box based, less accuracy](https://github.com/shendibrani/Optimal-OBB/blob/main/3caps(bb).png)
 
-
+10,000 points: 2.5ms
 
 This suggests that the algorithm has a Big O notation factor of O(n). Scaling linearly with the number of points it has to take into account. Note that the mesh filter vertex collection for all children is not included in these calculations. 
 

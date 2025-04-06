@@ -58,7 +58,7 @@ public class CombinedBoxCollider : MonoBehaviour
         Transform[] children = GetComponentsInChildren<Transform>();
         if (children.Length - 1 != previousChildPositions.Length) return true;
 
-        for (int i = 0; i < children.Length; i++)
+        for (int i = 0; i < children.Length - 1; i++)
         {
             if (children[i] == transform) continue;
             int index = System.Array.IndexOf(children, children[i]) - 1;
@@ -80,7 +80,7 @@ public class CombinedBoxCollider : MonoBehaviour
 
         foreach (Transform child in GetComponentsInChildren<Transform>())
         {
-            if (child == transform) continue;
+            if (child == transform || child.name == "Dynamic OBB") continue;
             positions.Add(child.position);
             scales.Add(child.localScale);
             rotations.Add(child.rotation);
@@ -101,6 +101,7 @@ public class CombinedBoxCollider : MonoBehaviour
         // Collect bounds from all Renderers and Colliders in children
         foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
         {
+            if (renderer.gameObject.name == "Dynamic OBB") continue; // Skip the Dynamic OBB object
             if (!hasBounds)
             {
                 totalBounds = renderer.bounds;
@@ -114,7 +115,7 @@ public class CombinedBoxCollider : MonoBehaviour
 
         foreach (Collider collider in GetComponentsInChildren<Collider>())
         {
-            if (collider == boxCollider) continue; // Skip the parent's collider
+            if (collider == boxCollider || collider.name == "Dynamic OBB") continue; // Skip the parent's collider
 
             if (!hasBounds)
             {

@@ -6,7 +6,6 @@ using System.Diagnostics;
 using UnityEditor;
 #endif
 
-//Attach to the parent GameObject containing MeshFilters in its children.
 [ExecuteAlways]
 public class OBBGenerator : MonoBehaviour
 {
@@ -33,11 +32,10 @@ public class OBBGenerator : MonoBehaviour
     private Quaternion[] prevLocalRotations;
     private Vector3[] prevLocalScales; // Added scale checking
     private float updateTimer;
-    private Stopwatch swatch = new Stopwatch(); // Consider removing if not used for profiling output
+    private Stopwatch swatch = new Stopwatch(); 
 
-    // Use a reusable list to reduce garbage collection
     private List<Vector3> pointsForOBB = new List<Vector3>();
-    private Vector3[] localBoundsCorners = new Vector3[8]; // Reusable array for corner calculation
+    private Vector3[] localBoundsCorners = new Vector3[8]; 
 
     void Start()
     {
@@ -236,11 +234,8 @@ public class OBBGenerator : MonoBehaviour
         swatch.Stop();
         UnityEngine.Debug.Log($"Point Collection ({PointMethod}): {swatch.Elapsed.TotalMilliseconds} ms for {pointsForOBB.Count} points.");
 
-
         if (pointsForOBB.Count < 3) // Need at least 3 points to define a plane, more for a volume
         {
-            // UnityEngine.Debug.LogWarning("Not enough valid points found to generate OBB. Resetting OBB.", this);
-            // Reset OBB to default state if no points found
             obb.transform.localPosition = Vector3.zero;
             obb.transform.localRotation = Quaternion.identity;
             boxCollider.center = Vector3.zero;
@@ -248,8 +243,6 @@ public class OBBGenerator : MonoBehaviour
             return; // Exit if no valid points
         }
 
-
-        // --- OBB Calculation (PCA) ---
         swatch.Restart();
 
         Vector3 centroid = ComputeCentroid(pointsForOBB);
@@ -450,9 +443,6 @@ public class OBBGenerator : MonoBehaviour
         }
         // UnityEngine.Debug.Log($"Stored transforms for {validFilters.Count} filters.");
     }
-
-
-    // --- Calculation Helpers ---
 
     private Vector3 ComputeCentroid(List<Vector3> points)
     {

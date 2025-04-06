@@ -6,12 +6,15 @@ See the comparison with the Green (Unity) vs Blue (our) to see the shortcomings 
 Aside from the core components of the project being sourced by different implementations by Hew Jun Wei (link below), we have added different optimizations such as vertex caching, calculating the best orientation and size based on the bounding boxes of each object instead of all vertices, etc...
 The results on a Ryzen 5700X3D are:
 
-OBB calculation for 176 verts (2 cylinders, all vertices), 200 samples : 0.013ms.. ![2 cylinders, all vertices](https://github.com/shendibrani/Optimal-OBB/blob/main/2capsule(allvertices).png)
-For 16 points (Bounding box method, same 2 cylinders) 200 samples: 0.0035ms ![2 cylinders, bounding box based, less accurate](https://github.com/shendibrani/Optimal-OBB/blob/main/2capsule(bb).png)
-For 1600 points (3 capsules) 200 samples: 0.39ms   ![3 capsules, all vertices, max accuracy](https://github.com/shendibrani/Optimal-OBB/blob/main/3caps(allverts).png)
+OBB calculation for 176 verts (2 cylinders, all vertices), 200 samples : 0.013ms..
+![2 cylinders, all vertices](https://github.com/shendibrani/Optimal-OBB/blob/main/2capsule(allvertices).png)
+For 16 points (Bounding box method, same 2 cylinders) 200 samples: 0.0035ms
+![2 cylinders, bounding box based, less accurate](https://github.com/shendibrani/Optimal-OBB/blob/main/2capsule(bb).png)
+For 1600 points (3 capsules) 200 samples: 0.39ms 
+![3 capsules, all vertices, max accuracy](https://github.com/shendibrani/Optimal-OBB/blob/main/3caps(allverts).png)
 
 3 Capsules reduced to 24 points (3 bounding boxes), 200 samples: 0.02ms avg
-![3 capsules, bounding box based, less accuracy](https://github.com/shendibrani/Optimal-OBB/blob/main/3cyls(boundingbox).png)
+![3 capsules, bounding box based, less accuracy](https://github.com/shendibrani/Optimal-OBB/blob/main/3caps(bb).png)
 
 
 
